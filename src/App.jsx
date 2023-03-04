@@ -7,7 +7,8 @@ import Footer from "./components/Footer"
 import "./App.css"
 //创建并暴露app组件
 export default  class App extends Component{
-
+    //状态在哪里，操作状态的方法旧在哪里
+    
     //初始化状态
     state = {todos:[
         {id:'001',name:"吃饭",done:true},
@@ -24,13 +25,25 @@ export default  class App extends Component{
         //更新状态
         this.setState({todos:newTodos})
     }
+    //用于勾选和取消勾选的todo,更新todo对象
+    updateTodo = (id,done)=>{
+        //获取状态中的todolist
+        const {todos} = this.state
+
+        //遍历做判断 更新状态
+        const newTodos = todos.map((todoObj)=>{
+           if(todoObj.id === id)  return {...todoObj,done:done}
+           else return todoObj
+        })
+        this.setState({todos:newTodos})
+    }
     render(){
         const {todos} = this.state
          return (
             <div className="todo-container">
                 <div className="todo-wrap">
                 <Header addTodo={this.addTodo}/>
-                <List todos={todos}/>
+                <List todos={todos} updateTodo={this.updateTodo}/>
                 <Footer/>
                 </div>
             </div>

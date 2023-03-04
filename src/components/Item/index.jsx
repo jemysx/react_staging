@@ -11,10 +11,19 @@ export default class Item extends Component {
         this.setState({mouse:flag})
      }
   }
+  //勾选，取消勾选某一个todo的回调
   handleCheck =(id)=>{
     return (event)=>{
       //  console.log(id,event.target.checked)
        this.props.updateTodo(id,event.target.checked)
+    }
+  }
+
+  //删除一个todo的回调,不适用柯里化实现
+  handleDelete = (id)=>{
+  
+    if(window.confirm('确定删除吗?')){
+      this.props.deleteTodo(id)
     }
   }
   render() {
@@ -27,7 +36,7 @@ export default class Item extends Component {
                   <input type="checkbox" defaultChecked={done}  onChange={this.handleCheck (id)}/>
                   <span>{name}</span>
               </label>
-              <button className="btn btn-danger" style={{display:mouse?'block':'none'}}>删除</button>
+              <button onClick={()=>{this.handleDelete(id)}} className="btn btn-danger" style={{display:mouse?'block':'none'}}>删除</button>
           </li>                    
       </div>
     )

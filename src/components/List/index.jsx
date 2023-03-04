@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Item from "../Item"
 import "./index.css"
 
-export default class index extends Component {
+export default class List extends Component {
   render() {
 
     //接收props

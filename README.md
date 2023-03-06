@@ -1,6 +1,6 @@
 ## 一 todoList案列相关知识点
 
--拆分组件， 实现静态组件， 注意：className，style的写法
+*拆分组件， 实现静态组件， 注意：className，style的写法
 
 -动态初始化列表，如何确定将数据放在哪个组件的state中?
     ---某个组件使用：放在其自身的state中

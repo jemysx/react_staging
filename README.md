@@ -1,18 +1,18 @@
 ## 一 todoList案列相关知识点
 
-拆分组件， 实现静态组件， 注意：className，style的写法
+1.拆分组件， 实现静态组件， 注意：className，style的写法
 
--动态初始化列表，如何确定将数据放在哪个组件的state中?
+2.动态初始化列表，如何确定将数据放在哪个组件的state中?
     ---某个组件使用：放在其自身的state中
     ---某些组件使用：放在他们共同的父组件state中(官方称此操作为：状态提升)
 
--关于父子之间通信：
+3.关于父子之间通信：
     1.父组件给子组件传递数据， 通过props传递
     2.子组件给父组件传递数据：通过props传递，要求父组件提前给子组件传递一个函数
     
--注意defaultchecked和checked的区别 类似的还有defaultValue和value
+4.注意defaultchecked和checked的区别 类似的还有defaultValue和value
 
--状态在哪里,操作状态的方法就在哪里
+5.状态在哪里,操作状态的方法就在哪里
 
 ## 二 github搜索案例相关知识点
 1.设计状态时要考虑全面,例如带有网络请求的组件,要考虑请求失败怎么办. 
@@ -30,6 +30,7 @@
       3.要在组件的componentWillUnmount中取消订阅
 
 4.fetch发送请求(关注分离的设计思想)
+
 ``
    try{
         const response = await fetch(`/api1/search/users2?q=${keyWord}`)

@@ -31,8 +31,7 @@
 
 4.fetch发送请求(关注分离的设计思想)
 
-``
-   try{
+``try{
         const response = await fetch(`/api1/search/users2?q=${keyWord}`)
         const data = await response.json()
         console.log(data)
@@ -40,5 +39,4 @@
         }catch(error){
         console.log('请求出错',error)
         PubSub.publish('ken',{isLoading:false,err:error.message})
-    }
- ``   
+    }``   

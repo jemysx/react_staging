@@ -19,7 +19,7 @@
 
 2.ES6小知识点: 解构赋值+重命名
   
-     ``let obj = {a:{b:1}}
+``let obj = {a:{b:1}}
      const {a}  = obj  //传统解构赋值
      const {a:{b}} = obj //连续解构赋值
      const {a:{b:value}} //连续解构赋值+重命名``

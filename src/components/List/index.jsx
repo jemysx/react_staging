@@ -3,39 +3,25 @@ import "./index.css"
 
 export default class List extends Component {
   render() {
+    const {users,isFirst,isLoading,err} = this.props
     return (
       <div className="row">
-        <div className="card">
-          <a href="https://github.com/reactjs" target="_blank">
-            <img alt="avatar" src="https://picx.zhimg.com/v2-a9c966774c2d1f924a3ffe3fb85db199_720w.jpg?source=172ae18b" style={{width:'100px'}}/>
-          </a>
-          <p className="card-text">reactjs</p>
-        </div>
-        <div className="card">
-          <a href="https://github.com/reactjs" target="_blank">
-            <img alt="avatar" src="https://picx.zhimg.com/v2-a9c966774c2d1f924a3ffe3fb85db199_720w.jpg?source=172ae18b" style={{width:'100px'}}/>
-          </a>
-          <p className="card-text">reactjs</p>
-        </div>
-        <div className="card">
-          <a href="https://github.com/reactjs" target="_blank">
-            <img alt="avatar" src="https://picx.zhimg.com/v2-a9c966774c2d1f924a3ffe3fb85db199_720w.jpg?source=172ae18b" style={{width:'100px'}}/>
-          </a>
-          <p className="card-text">reactjs</p>
-        </div>
-        <div className="card">
-          <a href="https://github.com/reactjs" target="_blank">
-            <img alt="avatar" src="https://picx.zhimg.com/v2-a9c966774c2d1f924a3ffe3fb85db199_720w.jpg?source=172ae18b" style={{width:'100px'}}/>
-          </a>
-          <p className="card-text">reactjs</p>
-        </div>
-        <div className="card">
-          <a href="https://github.com/reactjs" target="_blank">
-            <img  alt="avatar" src="https://picx.zhimg.com/v2-a9c966774c2d1f924a3ffe3fb85db199_720w.jpg?source=172ae18b" style={{width:'100px'}}/>
-          </a>
-          <p className="card-text">reactjs</p>
-        </div>
-    </div>
+        {
+          isFirst ? <h2>欢迎使用,输入关键字</h2> :
+          isLoading ?  <h2>Loading</h2>:
+          err ? <h2 style={{color:"red"}}>{err}</h2>:
+          users.map((userObj)=>{
+              return(
+                <div className="card" key={userObj.id}>
+                <a href={userObj.html_url} target="_blank">
+                  <img alt="avatar" src={userObj.avatar_url} style={{width:'100px'}}/>
+                </a>
+                <p className="card-text">{userObj.login}</p>
+              </div>
+              )
+          })
+        }
+      </div>
     )
   }
 }

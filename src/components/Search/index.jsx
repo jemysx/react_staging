@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 export default class Search extends Component {
-
   //获取用户的输入,
   search = ()=>{
     //常规解构赋值
@@ -13,10 +12,15 @@ export default class Search extends Component {
     const {keyWordElement:{value:keyWord}} = this
     console.log(keyWord);
       //发送网络请求
-
-    axios.get(`/api1/search/users2?q=${keyWord}`).then(
-      response =>{console.log('成功了',response.data)},
-      error =>{console.log('失败了',error)}
+    this.props.updateAppstate({isFirst:false,isLoading:true})
+    axios.get(`https://api.github.com/search/users?q=${keyWord}`).then(
+      response =>{
+        console.log('成功了',response.data)
+        this.props.updateAppstate({isLoading:false,users:response.data.items})
+      },
+      error =>{
+        this.props.updateAppstate({isLoading:false,err:error.message})
+      }
     )
   }
 

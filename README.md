@@ -1,4 +1,4 @@
-一 todoList案列相关知识点
+## 一 todoList案列相关知识点
 、
 1. 拆分组件， 实现静态组件， 注意：className，style的写法
 
@@ -12,3 +12,26 @@
 4.注意defaultchecked和checked的区别 类似的还有defaultValue和value
 
 5.状态在哪里,操作状态的方法就在哪里
+
+## 二 github搜索案例相关知识点
+   1.设计状态时要考虑全面,例如带有网络请求的组件,要考虑请求失败怎么办.
+   2.ES6小知识点: 解构赋值+重命名
+     let obj = {a:{b:1}}
+     const {a}  = obj  //传统解构赋值
+     const {a:{b}} = obj //连续解构赋值
+     const {a:{b:value}} //连续解构赋值+重命名
+   3.消息订阅与发布机制   
+      1.先订阅，再发布
+      2.适用于任意组件间的通信
+      3.要在组件的componentWillUnmount中取消订阅
+
+   4.fetch发送请求(关注分离的设计思想)
+    try{
+        const response = await fetch(`/api1/search/users2?q=${keyWord}`)
+        const data = await response.json()
+        console.log(data)
+        PubSub.publish('ken',{isLoading:false,users:data.items})
+        }catch(error){
+        console.log('请求出错',error)
+        PubSub.publish('ken',{isLoading:false,err:error.message})
+    }

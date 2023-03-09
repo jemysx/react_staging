@@ -22,9 +22,7 @@ export default class Message extends Component {
               return (
                 <li key={messageObj.id}>
                   {/* 向路由组件传递params参数 */}
-                {/*   <Link to={`/home/message/detail/${messageObj.id}/${messageObj.title}`}>{messageObj.title}</Link>&nbsp;&nbsp; */}
-                   {/* 向路由组件传递search参数 */}
-                   <Link to={`/home/message/detail/?id=${messageObj.id}&title=${messageObj.title}`}>{messageObj.title}</Link>&nbsp;&nbsp;
+                  <Link to={`/home/message/detail/${messageObj.id}/${messageObj.title}`}>{messageObj.title}</Link>&nbsp;&nbsp;
                 </li>
               )
             })
@@ -32,9 +30,7 @@ export default class Message extends Component {
         </ul>
         <hr />
         {/* 声明接收params参数 */}
-        {/* <Route path="/home/message/detail/:id/:title" component={Detail}/> */}
-       {/* search参数无需声明接收 正常注册路由*/}  
-        <Route path="/home/message/detail" component={Detail}/>
+        <Route path="/home/message/detail/:id/:title" component={Detail}/>
       </div>
     )
   }

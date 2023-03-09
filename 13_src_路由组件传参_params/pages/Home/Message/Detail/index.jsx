@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import qs from "qs"
+
 
 const data =[
     {id:"01",content:"你好,1"},
@@ -8,16 +8,9 @@ const data =[
 ]
 export default class Detail extends Component {
   render() {
-    // qs.stringify()  对象转成 urlencoded字符串形式
-    const {search} = this.props.location
-    // qs.parse  urlencoded字符串形式转成对象形式
-    const result =  qs.parse(search.slice(1))
-    console.log("qs",result)
-    const {id,title} = result
+    console.log(this.props)
     //接收params参数
-    // const {id,title} = this.props.match.params
-
-    //接收search参数
+    const {id,title} = this.props.match.params
     const findResult = data.find((dataObj)=>{
         return dataObj.id == id
     })

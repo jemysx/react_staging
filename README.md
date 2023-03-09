@@ -109,3 +109,9 @@
            路由链接（携带参数）: <Link to={`/home/message/detail/${messageObj.id}/${messageObj.title}`}>{messageObj.title}</Link>
            注册路由(声明接收): <Route path="/home/message/detail/:id/:title" component={Detail}/>
            接收参数:const{id,title} = this.props.match.params
+
+     2.search 参数
+            路由链接(携带参数):<Link to={`/home/message/detail/?id=${messageObj.id}&title=${messageObj.title}`}>{messageObj.title}</Link>
+            注册路由(无需声明,正常注册即可)   
+            接收参数:this.props.location.search
+            备注:获取到的是search是urlencoded编码字符串 ,需要借助querystring解析  

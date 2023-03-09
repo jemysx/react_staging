@@ -73,3 +73,18 @@
      1. NavLink可以实现路由链接的高亮, 通过activeClassName指定样式名字
      2.标签体内容是一个特殊的标签属性
      3.通过this.props.children可以获取标签体内容 它是一个特殊的标签属性
+
+
+##  六， Swtich的使用
+
+
+##  七 解决多级路径刷新页面样式丢失的问题
+
+    1.public/index.html中 引入样式时  ./ 写 / 
+    2.public/index.html中 引入样式时 ./ 写%PUBLIC_URL%
+    3.使用HashRouter
+
+
+##   八， 路由的模糊匹配和严格匹配
+
+

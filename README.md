@@ -115,3 +115,9 @@
             注册路由(无需声明,正常注册即可)   
             接收参数:this.props.location.search
             备注:获取到的是search是urlencoded编码字符串 ,需要借助querystring解析  
+
+     3.state 参数       
+             路由链接(携带参数):<Link to={{path:'路径',state:{name:'xxx',title:'xxx'}}}>{messageObj.title}</Link>
+            注册路由(无需声明,正常注册即可)   
+            接收参数:this.props.location.state
+            备注: 刷新也可以保留住参数

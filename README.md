@@ -67,3 +67,9 @@
             一般组件:写组件标签时传递什么就接收什么
             路由组件:接收到三个固定的属性值                   
                     history . location  . match
+
+##  五, NavLink与封装NavLink
+   
+     1. NavLink可以实现路由链接的高亮, 通过activeClassName指定样式名字
+     2.标签体内容是一个特殊的标签属性
+     3.通过this.props.children可以获取标签体内容 它是一个特殊的标签属性

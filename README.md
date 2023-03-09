@@ -121,3 +121,7 @@
             注册路由(无需声明,正常注册即可)   
             接收参数:this.props.location.state
             备注: 刷新也可以保留住参数
+
+##  十二, push与replace模式
+
+    

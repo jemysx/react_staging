@@ -11,7 +11,7 @@ export default class Detail extends Component {
     // qs.stringify()  对象转成 urlencoded字符串形式
     // qs.parse  urlencoded字符串形式转成对象形式
     //接收params参数
-    const {id,title} = this.props.match.params
+    // const {id,title} = this.props.match.params
     console.log("state",this.props);
     //接收search参数
     // const {search} = this.props.location
@@ -20,7 +20,7 @@ export default class Detail extends Component {
     // const {id,title} = result
 
     //接收state参数
-    // const {id,title} = this.props.location.state || {}
+    const {id,title} = this.props.location.state || {}
     
     const findResult = data.find((dataObj)=>{
         return dataObj.id === id
